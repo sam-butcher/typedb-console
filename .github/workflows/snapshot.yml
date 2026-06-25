@@ -35,6 +35,7 @@ jobs:
           google-credentials: ${{ secrets.BAZEL_CACHE_CREDENTIAL_JSON }}
           bazelrc: |
             build --remote_cache https://storage.googleapis.com/typedb-engineers-bazel-remote-cache-europe-west1
+            run --experimental_worker_for_repo_fetching=off
       - name: Deploy snapshot
         shell: bash
         env:
@@ -100,6 +101,7 @@ jobs:
           google-credentials: ${{ secrets.BAZEL_CACHE_CREDENTIAL_JSON }}
           bazelrc: |
             build --remote_cache https://storage.googleapis.com/typedb-engineers-bazel-remote-cache-europe-west1
+            run --experimental_worker_for_repo_fetching=off
       - name: Deploy snapshot
         shell: bash
         env:
@@ -147,6 +149,7 @@ jobs:
           google-credentials: ${{ secrets.BAZEL_CACHE_CREDENTIAL_JSON }}
           bazelrc: |
             build --remote_cache ${{ vars.BAZEL_CACHE_URL }}
+            run --experimental_worker_for_repo_fetching=off
       - name: Deploy snapshot
         shell: bash
         env:
