@@ -13,3 +13,5 @@ build --legacy_external_runfiles
 build --incompatible_strict_action_env --remote_download_toplevel --disk_cache=~/.bazel_cache --experimental_disk_cache_gc_max_size=80G --experimental_disk_cache_gc_max_age=60d
 run --incompatible_strict_action_env
 test --incompatible_strict_action_env --test_env=PATH
+
+# build:ci --experimental_worker_for_repo_fetching=off

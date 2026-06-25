@@ -6,6 +6,7 @@ name: Snapshot deploy
 
 on:
   push:
+#    branches: [ master ]
 
 permissions:
   contents: read
@@ -33,7 +34,7 @@ jobs:
           repository-cache: true
           google-credentials: ${{ secrets.BAZEL_CACHE_CREDENTIAL_JSON }}
           bazelrc: |
-            build --remote_cache https://storage.googleapis.com/typedb-engineers-bazel-remote-cache-europe-west1 --experimental_worker_for_repo_fetching=off
+            build --remote_cache https://storage.googleapis.com/typedb-engineers-bazel-remote-cache-europe-west1
       - name: Deploy snapshot
         shell: bash
         env:
@@ -77,7 +78,7 @@ jobs:
 #          REPO_TYPEDB_USERNAME: ${{ vars.REPO_TYPEDB_USERNAME }}
 #          REPO_TYPEDB_PASSWORD: ${{ secrets.REPO_TYPEDB_PASSWORD }}
 #        run: .github\windows\deploy_snapshot.bat console
-#
+
   loader:
     name: Loader snapshot ${{ matrix.target.label }}
     runs-on: ${{ matrix.target.runner }}
@@ -109,7 +110,7 @@ jobs:
           bazel run --define version=$(git rev-parse HEAD) \
             --compilation_mode=opt \
             ${{ matrix.target.bazel }} -- snapshot
-#
+
 #  loader-windows:
 #    name: Loader snapshot windows-x86_64
 #    runs-on: windows-2022
@@ -124,7 +125,7 @@ jobs:
 #          REPO_TYPEDB_USERNAME: ${{ vars.REPO_TYPEDB_USERNAME }}
 #          REPO_TYPEDB_PASSWORD: ${{ secrets.REPO_TYPEDB_PASSWORD }}
 #        run: .github\windows\deploy_snapshot.bat loader
-#
+
   typeql-check:
     name: TypeQL Check snapshot ${{ matrix.target.label }}
     runs-on: ${{ matrix.target.runner }}
