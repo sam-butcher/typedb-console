@@ -23,7 +23,7 @@ jobs:
 #          - { label: linux-x86_64, runner: ubuntu-22.04, bazel: "//console:deploy-linux-x86_64-targz" }
 #          - { label: linux-arm64, runner: ubuntu-22.04-arm, bazel: "//console:deploy-linux-arm64-targz" }
           - { label: mac-x86_64, runner: macos-26-intel, bazel: "//console:deploy-mac-x86_64-zip" }
-#          - { label: mac-arm64, runner: macos-26, bazel: "//console:deploy-mac-arm64-zip" }
+          - { label: mac-arm64, runner: macos-26, bazel: "//console:deploy-mac-arm64-zip" }
     steps:
       - uses: actions/checkout@v4
       - uses: bazel-contrib/setup-bazel@0.15.0
