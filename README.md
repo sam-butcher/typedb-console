@@ -1,5 +1,7 @@
 [![TypeDB](https://github.com/typedb/.github/raw/master/profile/banner.png)](https://typedb.com/)
 
+update readme
+
 # TypeDB Tools
 
 [![Build & test](https://github.com/typedb/typedb-console/actions/workflows/build.yml/badge.svg)](https://github.com/typedb/typedb-console/actions/workflows/build.yml)
